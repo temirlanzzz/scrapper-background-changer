@@ -1,0 +1,10 @@
+Part 1:
+1) Scrapped images of people wearing a particular cloth (saved in folder "images_with_person/")
+2) Scrapped images of the cloth not worn on somebody (saved in folder "images/")
+3) Scrapped images of persons and its corresponding cloth and other colors (saved in folder "merged/")
+The main difficulty was to access the ralphlaured.nl web-site, because most of the times during developing the scrapper script access was denied due to security. Also, the javascripts didn't work properly when "view all" button was clicked, probably also because of security or bad internet. Therefore, when testing on my local machine only around 60 images were scrapped.
+
+Part 2:
+My approach was to use inverse of the mask and join cloth image with mask using cv2.addWeighted. However, additional steps were required:
+to change the background, mask was changed to blue color with black background. Then, I needed to swap black background color with blue mask region color, for which I used green color as a temp value (changed background to green, mask to black, and background to blue).
+Then, all that is left was to add new mask with given image.
